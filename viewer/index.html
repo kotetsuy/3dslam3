@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- Adapted from room3dgs for DA3 uploads, 2026-09-21; see NOTICE.md. -->
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3dslam3 — 写真から3DGS</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>3dslam3</h1>
+    <p class="sub">写真を選んで、3Dモデルを作成・表示</p>
+    <div class="connection-info" aria-live="polite">
+      <span class="connection-label">PCの接続URL</span>
+      <span id="connection-urls">確認中…</span>
+      <p id="connection-note" class="sub"></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>新しい写真セット</h2>
+      <p class="hint">同じ対象を別視点で <b>2〜8枚</b>（まずは4枚、重なりを持たせて）。背景も含めて3Dにします。JPEG・PNG・WebP、合計64MBまで。</p>
+      <form id="new-set-form">
+        <input type="text" id="set-name" placeholder="セット名（例: リビング）" maxlength="40" required>
+        <div id="drop" class="dropzone">
+          <input type="file" id="files" accept="image/jpeg,image/png,image/webp" multiple hidden>
+          <p>クリック、またはここに写真をドラッグ&ドロップ</p>
+          <p id="pick-count" class="pick-count"></p>
+        </div>
+        <button type="submit" id="save-btn" disabled>このセットを保存</button>
+      </form>
+      <p id="new-set-msg" class="msg"></p>
+    </section>
+
+    <section class="panel">
+      <h2>保存済みセット <span id="set-count" class="count"></span></h2>
+      <div id="sets" class="sets-grid"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

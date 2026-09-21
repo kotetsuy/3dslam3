@@ -1,0 +1,776 @@
+{
+  "load_seconds": 0.1806086049998612,
+  "results": {
+    "headphones": {
+      "expected_route": "object",
+      "passed": true,
+      "runs": [
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9998423308134079,
+            "room": 0.0001330862050963333,
+            "outdoor": 2.4592194222350372e-05
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.999758780002594,
+                "room": 0.00020874191250186414,
+                "outdoor": 3.2563257263973355e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.999859094619751,
+                "room": 0.00010837913578143343,
+                "outdoor": 3.254951298004016e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+              "scores": {
+                "object": 0.9999055862426758,
+                "room": 7.842361810617149e-05,
+                "outdoor": 1.5948353393469006e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg",
+              "scores": {
+                "object": 0.9998458623886108,
+                "room": 0.0001368001539958641,
+                "outdoor": 1.7307653251918964e-05
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.1713453820000268,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9998423308134079,
+            "room": 0.0001330862050963333,
+            "outdoor": 2.4592194222350372e-05
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.999758780002594,
+                "room": 0.00020874191250186414,
+                "outdoor": 3.2563257263973355e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.999859094619751,
+                "room": 0.00010837913578143343,
+                "outdoor": 3.254951298004016e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+              "scores": {
+                "object": 0.9999055862426758,
+                "room": 7.842361810617149e-05,
+                "outdoor": 1.5948353393469006e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg",
+              "scores": {
+                "object": 0.9998458623886108,
+                "room": 0.0001368001539958641,
+                "outdoor": 1.7307653251918964e-05
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.16409844299982979,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9998423308134079,
+            "room": 0.0001330862050963333,
+            "outdoor": 2.4592194222350372e-05
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.999758780002594,
+                "room": 0.00020874191250186414,
+                "outdoor": 3.2563257263973355e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.999859094619751,
+                "room": 0.00010837913578143343,
+                "outdoor": 3.254951298004016e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+              "scores": {
+                "object": 0.9999055862426758,
+                "room": 7.842361810617149e-05,
+                "outdoor": 1.5948353393469006e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg",
+              "scores": {
+                "object": 0.9998458623886108,
+                "room": 0.0001368001539958641,
+                "outdoor": 1.7307653251918964e-05
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.16340245100013817,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        }
+      ]
+    },
+    "station": {
+      "expected_route": "scene",
+      "passed": true,
+      "runs": [
+        {
+          "label": "room",
+          "route": "scene",
+          "recommended_model": "Depth Anything 3",
+          "scores": {
+            "object": 0.17657358199357986,
+            "room": 0.6113078147172928,
+            "outdoor": 0.21211860701441765
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.13954448699951172,
+                "room": 0.6743430495262146,
+                "outdoor": 0.18611246347427368
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.12197041511535645,
+                "room": 0.6656562089920044,
+                "outdoor": 0.21237337589263916
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+              "scores": {
+                "object": 0.1411680281162262,
+                "room": 0.5915969014167786,
+                "outdoor": 0.26723507046699524
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg",
+              "scores": {
+                "object": 0.3036113977432251,
+                "room": 0.5136350989341736,
+                "outdoor": 0.1827535182237625
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.1670379850002064,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "room",
+          "route": "scene",
+          "recommended_model": "Depth Anything 3",
+          "scores": {
+            "object": 0.17657358199357986,
+            "room": 0.6113078147172928,
+            "outdoor": 0.21211860701441765
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.13954448699951172,
+                "room": 0.6743430495262146,
+                "outdoor": 0.18611246347427368
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.12197041511535645,
+                "room": 0.6656562089920044,
+                "outdoor": 0.21237337589263916
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+              "scores": {
+                "object": 0.1411680281162262,
+                "room": 0.5915969014167786,
+                "outdoor": 0.26723507046699524
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg",
+              "scores": {
+                "object": 0.3036113977432251,
+                "room": 0.5136350989341736,
+                "outdoor": 0.1827535182237625
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.1674024980000013,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "room",
+          "route": "scene",
+          "recommended_model": "Depth Anything 3",
+          "scores": {
+            "object": 0.17657358199357986,
+            "room": 0.6113078147172928,
+            "outdoor": 0.21211860701441765
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.13954448699951172,
+                "room": 0.6743430495262146,
+                "outdoor": 0.18611246347427368
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.12197041511535645,
+                "room": 0.6656562089920044,
+                "outdoor": 0.21237337589263916
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+              "scores": {
+                "object": 0.1411680281162262,
+                "room": 0.5915969014167786,
+                "outdoor": 0.26723507046699524
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg",
+              "scores": {
+                "object": 0.3036113977432251,
+                "room": 0.5136350989341736,
+                "outdoor": 0.1827535182237625
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.16697233499985487,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        }
+      ]
+    },
+    "room_cat": {
+      "expected_route": "scene",
+      "passed": false,
+      "runs": [
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.23312982311472297,
+            "room": 0.7666945159435272,
+            "outdoor": 0.00017563616711413488
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0001.png",
+              "scores": {
+                "object": 0.010347738862037659,
+                "room": 0.989519476890564,
+                "outdoor": 0.0001327825739281252
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0002.png",
+              "scores": {
+                "object": 0.02069777064025402,
+                "room": 0.9791221022605896,
+                "outdoor": 0.00018009977065958083
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0003.png",
+              "scores": {
+                "object": 0.7851272225379944,
+                "room": 0.21468114852905273,
+                "outdoor": 0.00019160358351655304
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0004.png",
+              "scores": {
+                "object": 0.1163465604186058,
+                "room": 0.8834553360939026,
+                "outdoor": 0.00019805874035228044
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.18449734199998602,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.23312982311472297,
+            "room": 0.7666945159435272,
+            "outdoor": 0.00017563616711413488
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0001.png",
+              "scores": {
+                "object": 0.010347738862037659,
+                "room": 0.989519476890564,
+                "outdoor": 0.0001327825739281252
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0002.png",
+              "scores": {
+                "object": 0.02069777064025402,
+                "room": 0.9791221022605896,
+                "outdoor": 0.00018009977065958083
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0003.png",
+              "scores": {
+                "object": 0.7851272225379944,
+                "room": 0.21468114852905273,
+                "outdoor": 0.00019160358351655304
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0004.png",
+              "scores": {
+                "object": 0.1163465604186058,
+                "room": 0.8834553360939026,
+                "outdoor": 0.00019805874035228044
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.18223707000015565,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.23312982311472297,
+            "room": 0.7666945159435272,
+            "outdoor": 0.00017563616711413488
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0001.png",
+              "scores": {
+                "object": 0.010347738862037659,
+                "room": 0.989519476890564,
+                "outdoor": 0.0001327825739281252
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0002.png",
+              "scores": {
+                "object": 0.02069777064025402,
+                "room": 0.9791221022605896,
+                "outdoor": 0.00018009977065958083
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0003.png",
+              "scores": {
+                "object": 0.7851272225379944,
+                "room": 0.21468114852905273,
+                "outdoor": 0.00019160358351655304
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0004.png",
+              "scores": {
+                "object": 0.1163465604186058,
+                "room": 0.8834553360939026,
+                "outdoor": 0.00019805874035228044
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.18200398699991638,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        }
+      ]
+    },
+    "toy": {
+      "expected_route": "object",
+      "passed": true,
+      "runs": [
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.975966066122055,
+            "room": 0.011777850275393575,
+            "outdoor": 0.012256094720214605
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/00.png",
+              "scores": {
+                "object": 0.9454622268676758,
+                "room": 0.030965853482484818,
+                "outdoor": 0.023571914061903954
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/01.png",
+              "scores": {
+                "object": 0.9861240386962891,
+                "room": 0.003247735556215048,
+                "outdoor": 0.010628257878124714
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/02.png",
+              "scores": {
+                "object": 0.9883071780204773,
+                "room": 0.0027064227033406496,
+                "outdoor": 0.008986366912722588
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/03.png",
+              "scores": {
+                "object": 0.9839708209037781,
+                "room": 0.010191389359533787,
+                "outdoor": 0.005837840028107166
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.14205686300010711,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.975966066122055,
+            "room": 0.011777850275393575,
+            "outdoor": 0.012256094720214605
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/00.png",
+              "scores": {
+                "object": 0.9454622268676758,
+                "room": 0.030965853482484818,
+                "outdoor": 0.023571914061903954
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/01.png",
+              "scores": {
+                "object": 0.9861240386962891,
+                "room": 0.003247735556215048,
+                "outdoor": 0.010628257878124714
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/02.png",
+              "scores": {
+                "object": 0.9883071780204773,
+                "room": 0.0027064227033406496,
+                "outdoor": 0.008986366912722588
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/03.png",
+              "scores": {
+                "object": 0.9839708209037781,
+                "room": 0.010191389359533787,
+                "outdoor": 0.005837840028107166
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.14368483999987802,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.975966066122055,
+            "room": 0.011777850275393575,
+            "outdoor": 0.012256094720214605
+          },
+          "reason": "all_images_agree",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/00.png",
+              "scores": {
+                "object": 0.9454622268676758,
+                "room": 0.030965853482484818,
+                "outdoor": 0.023571914061903954
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/01.png",
+              "scores": {
+                "object": 0.9861240386962891,
+                "room": 0.003247735556215048,
+                "outdoor": 0.010628257878124714
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/02.png",
+              "scores": {
+                "object": 0.9883071780204773,
+                "room": 0.0027064227033406496,
+                "outdoor": 0.008986366912722588
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/03.png",
+              "scores": {
+                "object": 0.9839708209037781,
+                "room": 0.010191389359533787,
+                "outdoor": 0.005837840028107166
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.1424415430001318,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        }
+      ]
+    },
+    "mixed": {
+      "expected_route": "uncertain",
+      "passed": true,
+      "runs": [
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.5652831941843033,
+            "room": 0.3350790948916256,
+            "outdoor": 0.09963773803428921
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "openai/clip-vit-base-patch32",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.999758780002594,
+                "room": 0.00020874191250186414,
+                "outdoor": 3.2563257263973355e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.999859094619751,
+                "room": 0.00010837913578143343,
+                "outdoor": 3.254951298004016e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.13954448699951172,
+                "room": 0.6743430495262146,
+                "outdoor": 0.18611246347427368
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.12197041511535645,
+                "room": 0.6656562089920044,
+                "outdoor": 0.21237337589263916
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.1646086700000069,
+          "score_note": "Relative CLIP scores; not calibrated probabilities."
+        }
+      ]
+    }
+  }
+}

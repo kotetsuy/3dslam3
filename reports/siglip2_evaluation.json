@@ -1,0 +1,776 @@
+{
+  "load_seconds": 0.6526007630000095,
+  "results": {
+    "headphones": {
+      "expected_route": "object",
+      "passed": true,
+      "runs": [
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9990376830101013,
+            "room": 0.0008041132095968351,
+            "outdoor": 0.000158190052388818
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.9993578791618347,
+                "room": 0.0004975981428287923,
+                "outdoor": 0.00014451649622060359
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.9991983771324158,
+                "room": 0.0007065555546432734,
+                "outdoor": 9.510604286333546e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+              "scores": {
+                "object": 0.9992203712463379,
+                "room": 0.0005917861126363277,
+                "outdoor": 0.00018789275782182813
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg",
+              "scores": {
+                "object": 0.9983741044998169,
+                "room": 0.0014205130282789469,
+                "outdoor": 0.00020524491264950484
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.4576368289999664,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9990376830101013,
+            "room": 0.0008041132095968351,
+            "outdoor": 0.000158190052388818
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.9993578791618347,
+                "room": 0.0004975981428287923,
+                "outdoor": 0.00014451649622060359
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.9991983771324158,
+                "room": 0.0007065555546432734,
+                "outdoor": 9.510604286333546e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+              "scores": {
+                "object": 0.9992203712463379,
+                "room": 0.0005917861126363277,
+                "outdoor": 0.00018789275782182813
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg",
+              "scores": {
+                "object": 0.9983741044998169,
+                "room": 0.0014205130282789469,
+                "outdoor": 0.00020524491264950484
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.45592397199993684,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9990376830101013,
+            "room": 0.0008041132095968351,
+            "outdoor": 0.000158190052388818
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.9993578791618347,
+                "room": 0.0004975981428287923,
+                "outdoor": 0.00014451649622060359
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.9991983771324158,
+                "room": 0.0007065555546432734,
+                "outdoor": 9.510604286333546e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+              "scores": {
+                "object": 0.9992203712463379,
+                "room": 0.0005917861126363277,
+                "outdoor": 0.00018789275782182813
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg",
+              "scores": {
+                "object": 0.9983741044998169,
+                "room": 0.0014205130282789469,
+                "outdoor": 0.00020524491264950484
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.46020278400010284,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        }
+      ]
+    },
+    "station": {
+      "expected_route": "scene",
+      "passed": true,
+      "runs": [
+        {
+          "label": "room",
+          "route": "scene",
+          "recommended_model": "Depth Anything 3",
+          "scores": {
+            "object": 0.11725322436541319,
+            "room": 0.7706302255392075,
+            "outdoor": 0.1121165407821536
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.07225698232650757,
+                "room": 0.8794412016868591,
+                "outdoor": 0.048301827162504196
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.04732688143849373,
+                "room": 0.8432332277297974,
+                "outdoor": 0.10943987965583801
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+              "scores": {
+                "object": 0.0657566711306572,
+                "room": 0.8073685765266418,
+                "outdoor": 0.12687471508979797
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg",
+              "scores": {
+                "object": 0.28367236256599426,
+                "room": 0.5524778962135315,
+                "outdoor": 0.16384974122047424
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.45574567100015884,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "room",
+          "route": "scene",
+          "recommended_model": "Depth Anything 3",
+          "scores": {
+            "object": 0.11725322436541319,
+            "room": 0.7706302255392075,
+            "outdoor": 0.1121165407821536
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.07225698232650757,
+                "room": 0.8794412016868591,
+                "outdoor": 0.048301827162504196
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.04732688143849373,
+                "room": 0.8432332277297974,
+                "outdoor": 0.10943987965583801
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+              "scores": {
+                "object": 0.0657566711306572,
+                "room": 0.8073685765266418,
+                "outdoor": 0.12687471508979797
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg",
+              "scores": {
+                "object": 0.28367236256599426,
+                "room": 0.5524778962135315,
+                "outdoor": 0.16384974122047424
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.4552348100000927,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "room",
+          "route": "scene",
+          "recommended_model": "Depth Anything 3",
+          "scores": {
+            "object": 0.11725322436541319,
+            "room": 0.7706302255392075,
+            "outdoor": 0.1121165407821536
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.07225698232650757,
+                "room": 0.8794412016868591,
+                "outdoor": 0.048301827162504196
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.04732688143849373,
+                "room": 0.8432332277297974,
+                "outdoor": 0.10943987965583801
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+              "scores": {
+                "object": 0.0657566711306572,
+                "room": 0.8073685765266418,
+                "outdoor": 0.12687471508979797
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg",
+              "scores": {
+                "object": 0.28367236256599426,
+                "room": 0.5524778962135315,
+                "outdoor": 0.16384974122047424
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.4556996230001005,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        }
+      ]
+    },
+    "room_cat": {
+      "expected_route": "scene",
+      "passed": false,
+      "runs": [
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.28839480224996805,
+            "room": 0.7109970934689045,
+            "outdoor": 0.0006081097526475787
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0001.png",
+              "scores": {
+                "object": 0.01980440691113472,
+                "room": 0.978661060333252,
+                "outdoor": 0.0015345127321779728
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0002.png",
+              "scores": {
+                "object": 0.0917431116104126,
+                "room": 0.9076559543609619,
+                "outdoor": 0.0006009875796735287
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0003.png",
+              "scores": {
+                "object": 0.9179041981697083,
+                "room": 0.08194293081760406,
+                "outdoor": 0.00015286594862118363
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0004.png",
+              "scores": {
+                "object": 0.12412749230861664,
+                "room": 0.8757284283638,
+                "outdoor": 0.00014407275011762977
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.4786769730001197,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.28839480224996805,
+            "room": 0.7109970934689045,
+            "outdoor": 0.0006081097526475787
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0001.png",
+              "scores": {
+                "object": 0.01980440691113472,
+                "room": 0.978661060333252,
+                "outdoor": 0.0015345127321779728
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0002.png",
+              "scores": {
+                "object": 0.0917431116104126,
+                "room": 0.9076559543609619,
+                "outdoor": 0.0006009875796735287
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0003.png",
+              "scores": {
+                "object": 0.9179041981697083,
+                "room": 0.08194293081760406,
+                "outdoor": 0.00015286594862118363
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0004.png",
+              "scores": {
+                "object": 0.12412749230861664,
+                "room": 0.8757284283638,
+                "outdoor": 0.00014407275011762977
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.47542721400009214,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.28839480224996805,
+            "room": 0.7109970934689045,
+            "outdoor": 0.0006081097526475787
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0001.png",
+              "scores": {
+                "object": 0.01980440691113472,
+                "room": 0.978661060333252,
+                "outdoor": 0.0015345127321779728
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0002.png",
+              "scores": {
+                "object": 0.0917431116104126,
+                "room": 0.9076559543609619,
+                "outdoor": 0.0006009875796735287
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0003.png",
+              "scores": {
+                "object": 0.9179041981697083,
+                "room": 0.08194293081760406,
+                "outdoor": 0.00015286594862118363
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs-work/out/Room_Cat/images/image_0004.png",
+              "scores": {
+                "object": 0.12412749230861664,
+                "room": 0.8757284283638,
+                "outdoor": 0.00014407275011762977
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.4760968949999551,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        }
+      ]
+    },
+    "toy": {
+      "expected_route": "object",
+      "passed": true,
+      "runs": [
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9917149990797043,
+            "room": 0.008178969903383404,
+            "outdoor": 0.00010603918963170145
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/00.png",
+              "scores": {
+                "object": 0.9752109050750732,
+                "room": 0.02462935447692871,
+                "outdoor": 0.000159731280291453
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/01.png",
+              "scores": {
+                "object": 0.9979986548423767,
+                "room": 0.001853796886280179,
+                "outdoor": 0.00014754667063243687
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/02.png",
+              "scores": {
+                "object": 0.9966813921928406,
+                "room": 0.0032776149455457926,
+                "outdoor": 4.1017934563569725e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/03.png",
+              "scores": {
+                "object": 0.9969690442085266,
+                "room": 0.0029551133047789335,
+                "outdoor": 7.586087303934619e-05
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.4403564379999807,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9917149990797043,
+            "room": 0.008178969903383404,
+            "outdoor": 0.00010603918963170145
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/00.png",
+              "scores": {
+                "object": 0.9752109050750732,
+                "room": 0.02462935447692871,
+                "outdoor": 0.000159731280291453
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/01.png",
+              "scores": {
+                "object": 0.9979986548423767,
+                "room": 0.001853796886280179,
+                "outdoor": 0.00014754667063243687
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/02.png",
+              "scores": {
+                "object": 0.9966813921928406,
+                "room": 0.0032776149455457926,
+                "outdoor": 4.1017934563569725e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/03.png",
+              "scores": {
+                "object": 0.9969690442085266,
+                "room": 0.0029551133047789335,
+                "outdoor": 7.586087303934619e-05
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.4414894720000575,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        },
+        {
+          "label": "object",
+          "route": "object",
+          "recommended_model": "FreeSplatter-O",
+          "scores": {
+            "object": 0.9917149990797043,
+            "room": 0.008178969903383404,
+            "outdoor": 0.00010603918963170145
+          },
+          "reason": "all_images_agree",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/00.png",
+              "scores": {
+                "object": 0.9752109050750732,
+                "room": 0.02462935447692871,
+                "outdoor": 0.000159731280291453
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/01.png",
+              "scores": {
+                "object": 0.9979986548423767,
+                "room": 0.001853796886280179,
+                "outdoor": 0.00014754667063243687
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/02.png",
+              "scores": {
+                "object": 0.9966813921928406,
+                "room": 0.0032776149455457926,
+                "outdoor": 4.1017934563569725e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/VGGT/results/scene_kitchen/images/03.png",
+              "scores": {
+                "object": 0.9969690442085266,
+                "room": 0.0029551133047789335,
+                "outdoor": 7.586087303934619e-05
+              },
+              "route": "object"
+            }
+          ],
+          "classification_seconds": 0.44197494999980336,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        }
+      ]
+    },
+    "mixed": {
+      "expected_route": "uncertain",
+      "passed": true,
+      "runs": [
+        {
+          "label": "uncertain",
+          "route": "uncertain",
+          "recommended_model": null,
+          "scores": {
+            "object": 0.529535030014813,
+            "room": 0.43096964577853214,
+            "outdoor": 0.03949533233935654
+          },
+          "reason": "mixed_or_low_confidence",
+          "model": "google/siglip2-base-patch16-224",
+          "device": "cpu",
+          "thresholds": {
+            "min_score": 0.6,
+            "min_margin": 0.15
+          },
+          "images": [
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+              "scores": {
+                "object": 0.9993578791618347,
+                "room": 0.0004975981428287923,
+                "outdoor": 0.00014451649622060359
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+              "scores": {
+                "object": 0.9991983771324158,
+                "room": 0.0007065555546432734,
+                "outdoor": 9.510604286333546e-05
+              },
+              "route": "object"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+              "scores": {
+                "object": 0.07225698232650757,
+                "room": 0.8794412016868591,
+                "outdoor": 0.048301827162504196
+              },
+              "route": "scene"
+            },
+            {
+              "path": "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+              "scores": {
+                "object": 0.04732688143849373,
+                "room": 0.8432332277297974,
+                "outdoor": 0.10943987965583801
+              },
+              "route": "scene"
+            }
+          ],
+          "classification_seconds": 0.4515972019999026,
+          "score_note": "Softmax of scaled cosine similarities of mean prompt embeddings; relative scores, not calibrated probabilities. SigLIP native sigmoid scores are not used."
+        }
+      ]
+    }
+  }
+}

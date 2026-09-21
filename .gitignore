@@ -1,0 +1,18 @@
+.venv/
+# Downloaded weights, tokenizer, configs, model card, Hub blobs/locks
+.cache/
+__pycache__/
+.pytest_cache/
+# FreeSplatter-O upstream source, weights and local download metadata
+/FreeSplatter-O/
+
+# DA3 upstream source, model weights, environment and outputs
+/DA3/
+
+# Local server PID, lifecycle lock and logs
+/run/
+
+# Local editor/agent session state
+/:memory:.ses
+/.agents/
+/.codex/

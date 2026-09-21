@@ -1,0 +1,9 @@
+# Install torch separately using the CPU or suitable ROCm index (see README).
+torch>=2.6,<3
+transformers==4.57.6
+Pillow>=10,<13
+sentencepiece>=0.2,<0.3
+protobuf>=5,<8
+huggingface-hub>=0.34,<1
+einops==0.8.2
+rembg[cpu]==2.0.85

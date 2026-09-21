@@ -1,0 +1,398 @@
+{
+  "shibuya_fp32": {
+    "depth": {
+      "mean_absolute_difference": 3.1993846505429246e-07,
+      "max_absolute_difference": 1.1205673217773438e-05,
+      "mean_relative_difference": 3.3567815194146533e-07
+    },
+    "conf": {
+      "mean_absolute_difference": 3.155498234264087e-06,
+      "max_absolute_difference": 4.839897155761719e-05
+    },
+    "intrinsics": {
+      "mean_absolute_difference": 2.882215630961582e-05,
+      "max_absolute_difference": 0.000335693359375
+    },
+    "extrinsics": {
+      "mean_absolute_difference": 1.6905202926409402e-07,
+      "max_absolute_difference": 7.748603820800781e-07
+    },
+    "camera_rotation_determinants": [
+      0.9999999403953552,
+      1.0,
+      1.0000001192092896,
+      1.0
+    ],
+    "cpu_report": {
+      "model": "DA3-BASE",
+      "device": "cpu",
+      "backend": "cpu",
+      "dtype": "float32",
+      "threads": 8,
+      "torch_version": "2.9.1+cpu",
+      "hip_version": null,
+      "gpu_name": null,
+      "peak_gpu_allocated_bytes": null,
+      "inference_runs": [
+        {
+          "run": 1,
+          "forward_seconds": 1.8607619819995307,
+          "prediction_seconds": 1.8894341589993928
+        },
+        {
+          "run": 2,
+          "forward_seconds": 1.7061380239993014,
+          "prediction_seconds": 1.7278536209996673
+        },
+        {
+          "run": 3,
+          "forward_seconds": 1.767500594000012,
+          "prediction_seconds": 1.7865765070000634
+        }
+      ],
+      "repeat": 3,
+      "images": [
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg"
+      ],
+      "depth_shape": [
+        4,
+        504,
+        378
+      ],
+      "resolution_limit": 504,
+      "ref_view_strategy": "first",
+      "background_removed_before_inference": false,
+      "mask_dir": null,
+      "conf_percentile": 40,
+      "confidence_threshold": 2.539678955078125,
+      "load_seconds": 0.3610485789995437,
+      "forward_seconds": 1.767500594000012,
+      "prediction_seconds": 1.7865765070000634,
+      "total_seconds": 6.655272805000095,
+      "scene_points": 457229,
+      "object_points": null,
+      "output_type": "RGB point cloud, not 3DGS or mesh",
+      "metric_scale": false
+    },
+    "gpu_report": {
+      "model": "DA3-BASE",
+      "device": "cuda",
+      "backend": "rocm",
+      "dtype": "float32",
+      "threads": 8,
+      "torch_version": "2.13.0+rocm10.0.0",
+      "hip_version": "7.15.26333",
+      "gpu_name": "AMD Radeon 8060S Graphics",
+      "peak_gpu_allocated_bytes": 1686902784,
+      "inference_runs": [
+        {
+          "run": 1,
+          "forward_seconds": 6.871115859999918,
+          "prediction_seconds": 6.901630404000571
+        },
+        {
+          "run": 2,
+          "forward_seconds": 0.40994910599965806,
+          "prediction_seconds": 0.4357530260003841
+        },
+        {
+          "run": 3,
+          "forward_seconds": 0.3549047400001655,
+          "prediction_seconds": 0.38082056700022804
+        }
+      ],
+      "repeat": 3,
+      "images": [
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg"
+      ],
+      "depth_shape": [
+        4,
+        504,
+        378
+      ],
+      "resolution_limit": 504,
+      "ref_view_strategy": "first",
+      "background_removed_before_inference": false,
+      "mask_dir": null,
+      "conf_percentile": 40,
+      "confidence_threshold": 2.5396766662597656,
+      "load_seconds": 1.507920178999484,
+      "forward_seconds": 0.3549047400001655,
+      "prediction_seconds": 0.38082056700022804,
+      "total_seconds": 10.151683356999456,
+      "scene_points": 457229,
+      "object_points": null,
+      "output_type": "RGB point cloud, not 3DGS or mesh",
+      "metric_scale": false
+    }
+  },
+  "shibuya_fp16": {
+    "depth": {
+      "mean_absolute_difference": 0.00010165370622416958,
+      "max_absolute_difference": 0.004707694053649902,
+      "mean_relative_difference": 0.00010037121683126315
+    },
+    "conf": {
+      "mean_absolute_difference": 0.004821884445846081,
+      "max_absolute_difference": 0.030929088592529297
+    },
+    "intrinsics": {
+      "mean_absolute_difference": 0.0196651890873909,
+      "max_absolute_difference": 0.15771484375
+    },
+    "extrinsics": {
+      "mean_absolute_difference": 6.905347254360095e-05,
+      "max_absolute_difference": 0.0004123896360397339
+    },
+    "camera_rotation_determinants": [
+      0.9999999403953552,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cpu_report": {
+      "model": "DA3-BASE",
+      "device": "cpu",
+      "backend": "cpu",
+      "dtype": "float32",
+      "threads": 8,
+      "torch_version": "2.9.1+cpu",
+      "hip_version": null,
+      "gpu_name": null,
+      "peak_gpu_allocated_bytes": null,
+      "inference_runs": [
+        {
+          "run": 1,
+          "forward_seconds": 1.8607619819995307,
+          "prediction_seconds": 1.8894341589993928
+        },
+        {
+          "run": 2,
+          "forward_seconds": 1.7061380239993014,
+          "prediction_seconds": 1.7278536209996673
+        },
+        {
+          "run": 3,
+          "forward_seconds": 1.767500594000012,
+          "prediction_seconds": 1.7865765070000634
+        }
+      ],
+      "repeat": 3,
+      "images": [
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg"
+      ],
+      "depth_shape": [
+        4,
+        504,
+        378
+      ],
+      "resolution_limit": 504,
+      "ref_view_strategy": "first",
+      "background_removed_before_inference": false,
+      "mask_dir": null,
+      "conf_percentile": 40,
+      "confidence_threshold": 2.539678955078125,
+      "load_seconds": 0.3610485789995437,
+      "forward_seconds": 1.767500594000012,
+      "prediction_seconds": 1.7865765070000634,
+      "total_seconds": 6.655272805000095,
+      "scene_points": 457229,
+      "object_points": null,
+      "output_type": "RGB point cloud, not 3DGS or mesh",
+      "metric_scale": false
+    },
+    "gpu_report": {
+      "model": "DA3-BASE",
+      "device": "cuda",
+      "backend": "rocm",
+      "dtype": "float16",
+      "threads": 8,
+      "torch_version": "2.13.0+rocm10.0.0",
+      "hip_version": "7.15.26333",
+      "gpu_name": "AMD Radeon 8060S Graphics",
+      "peak_gpu_allocated_bytes": 1398187008,
+      "inference_runs": [
+        {
+          "run": 1,
+          "forward_seconds": 1.174808734999715,
+          "prediction_seconds": 1.2035757350004133
+        },
+        {
+          "run": 2,
+          "forward_seconds": 0.2466843960000915,
+          "prediction_seconds": 0.27113375999942946
+        },
+        {
+          "run": 3,
+          "forward_seconds": 0.16702040400014084,
+          "prediction_seconds": 0.19384800200077734
+        }
+      ],
+      "repeat": 3,
+      "images": [
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_000.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_001.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_002.jpg",
+        "/home/your-user/room3dgs/data/sets/7c57ca12/input/img_003.jpg"
+      ],
+      "depth_shape": [
+        4,
+        504,
+        378
+      ],
+      "resolution_limit": 504,
+      "ref_view_strategy": "first",
+      "background_removed_before_inference": false,
+      "mask_dir": null,
+      "conf_percentile": 40,
+      "confidence_threshold": 2.5374596118927,
+      "load_seconds": 0.4222232020001684,
+      "forward_seconds": 0.16702040400014084,
+      "prediction_seconds": 0.19384800200077734,
+      "total_seconds": 3.0224931049997394,
+      "scene_points": 457229,
+      "object_points": null,
+      "output_type": "RGB point cloud, not 3DGS or mesh",
+      "metric_scale": false
+    }
+  },
+  "headphones_fp32": {
+    "depth": {
+      "mean_absolute_difference": 4.399715862746234e-07,
+      "max_absolute_difference": 2.002716064453125e-05,
+      "mean_relative_difference": 3.1252520216185076e-07
+    },
+    "conf": {
+      "mean_absolute_difference": 5.32955209564534e-06,
+      "max_absolute_difference": 4.1961669921875e-05
+    },
+    "intrinsics": {
+      "mean_absolute_difference": 0.00018988715601153672,
+      "max_absolute_difference": 0.001068115234375
+    },
+    "extrinsics": {
+      "mean_absolute_difference": 2.0263580324808572e-07,
+      "max_absolute_difference": 6.556510925292969e-07
+    },
+    "camera_rotation_determinants": [
+      1.0,
+      1.0,
+      1.0000001192092896,
+      0.9999997019767761
+    ],
+    "cpu_report": {
+      "model": "DA3-BASE",
+      "device": "cpu",
+      "dtype": "float32",
+      "threads": 8,
+      "images": [
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg"
+      ],
+      "depth_shape": [
+        4,
+        504,
+        378
+      ],
+      "resolution_limit": 504,
+      "ref_view_strategy": "first",
+      "background_removed_before_inference": false,
+      "mask_dir": "FreeSplatter-O/inputs/headphones_rgba",
+      "conf_percentile": 40,
+      "confidence_threshold": 3.4304483413696287,
+      "load_seconds": 0.35235636900006284,
+      "forward_seconds": 1.9172623549998207,
+      "prediction_seconds": 1.9728422640000645,
+      "total_seconds": 3.38333716499983,
+      "scene_points": 457229,
+      "object_points": 75923,
+      "output_type": "RGB point cloud, not 3DGS or mesh",
+      "metric_scale": false
+    },
+    "gpu_report": {
+      "model": "DA3-BASE",
+      "device": "cuda",
+      "backend": "rocm",
+      "dtype": "float32",
+      "threads": 8,
+      "torch_version": "2.13.0+rocm10.0.0",
+      "hip_version": "7.15.26333",
+      "gpu_name": "AMD Radeon 8060S Graphics",
+      "peak_gpu_allocated_bytes": 1400082432,
+      "inference_runs": [
+        {
+          "run": 1,
+          "forward_seconds": 1.0237535349997415,
+          "prediction_seconds": 1.0500755160001063
+        },
+        {
+          "run": 2,
+          "forward_seconds": 0.40330901900051686,
+          "prediction_seconds": 0.4255947080000624
+        },
+        {
+          "run": 3,
+          "forward_seconds": 0.3567933379999886,
+          "prediction_seconds": 0.3816291049997744
+        }
+      ],
+      "repeat": 3,
+      "images": [
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_000.jpg",
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_001.jpg",
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_002.jpg",
+        "/home/your-user/room3dgs/data/sets/4b8f82bc/input/img_003.jpg"
+      ],
+      "depth_shape": [
+        4,
+        504,
+        378
+      ],
+      "resolution_limit": 504,
+      "ref_view_strategy": "first",
+      "background_removed_before_inference": false,
+      "mask_dir": "FreeSplatter-O/inputs/headphones_rgba",
+      "conf_percentile": 40,
+      "confidence_threshold": 3.430449962615967,
+      "load_seconds": 0.38571902500007127,
+      "forward_seconds": 0.3567933379999886,
+      "prediction_seconds": 0.3816291049997744,
+      "total_seconds": 3.3491566700004114,
+      "scene_points": 457229,
+      "object_points": 75923,
+      "output_type": "RGB point cloud, not 3DGS or mesh",
+      "metric_scale": false
+    }
+  },
+  "fresh_process_pipeline_after_prior_tests": {
+    "float32": {
+      "dtype": "float32",
+      "inference_process_seconds": 5.964621284000714,
+      "conversion_process_seconds": 0.8513618429997223,
+      "total_wall_seconds": 6.815989077000268,
+      "cache_state": "After earlier ROCm tests; fresh Python process, disk/kernel caches may be warm",
+      "includes": "Both interpreter startups, imports, DA3 load/inference, point and simple 3DGS saves",
+      "excludes": "Downloads, classification, preview, viewer; no mask or optimization"
+    },
+    "float16": {
+      "dtype": "float16",
+      "inference_process_seconds": 5.517860943999949,
+      "conversion_process_seconds": 0.8251487219995397,
+      "total_wall_seconds": 6.3430145460006315,
+      "cache_state": "After earlier ROCm tests; fresh Python process, disk/kernel caches may be warm",
+      "includes": "Both interpreter startups, imports, DA3 load/inference, point and simple 3DGS saves",
+      "excludes": "Downloads, classification, preview, viewer; no mask or optimization"
+    }
+  }
+}

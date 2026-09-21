@@ -1,0 +1,40 @@
+{
+  "health": {
+    "ready": true,
+    "pid": 211696,
+    "instance_token": "bd24fa66e4bb4604bacfcc1668a318ae",
+    "rocm": {
+      "ready": true,
+      "pid": 211696,
+      "device": "AMD Radeon 8060S Graphics",
+      "dtype": "float32",
+      "load_seconds": 0.3928172119994997,
+      "warmup_forward_seconds": [
+        1.0483225400002993,
+        0.3988116290001926
+      ],
+      "warmup_shape": [
+        4,
+        504,
+        378
+      ],
+      "initialization_seconds": 3.988364882001406
+    }
+  },
+  "runs": [
+    {
+      "run": 1,
+      "forward_seconds": 0.3564063140001963,
+      "total_seconds": 1.913919104001252,
+      "depth_mean_absolute_error": 3.1993846505429246e-07,
+      "pid": 211696
+    },
+    {
+      "run": 2,
+      "forward_seconds": 0.35564097499991476,
+      "total_seconds": 1.922928296999089,
+      "depth_mean_absolute_error": 3.1993846505429246e-07,
+      "pid": 211696
+    }
+  ]
+}

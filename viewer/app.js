@@ -25,7 +25,7 @@ fileInput.addEventListener("change", () => setPicked([...fileInput.files]));
 ["dragleave", "drop"].forEach((ev) =>
   drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("drag"); }));
 drop.addEventListener("drop", (e) => {
-  const fs = [...e.dataTransfer.files].filter((f) => f.type.startsWith("image/"));
+  const fs = [...e.dataTransfer.files].filter((f) => f.type.startsWith("image/") || /\.(hei[cf]|mpo)$/i.test(f.name));
   setPicked(fs);
 });
 
@@ -90,11 +90,15 @@ async function loadSets() {
 function renderCard(s) {
   const card = document.createElement("div");
   card.className = "card";
-  const thumb = s.images && s.images.length
-    ? `/api/sets/${s.id}/thumb/${s.images[0]}` : "";
+  const photos = (s.images || []).map((name, index) => {
+    const base = `/api/sets/${encodeURIComponent(s.id)}`;
+    const filename = encodeURIComponent(name);
+    const label = escapeHtml(`${s.name} — 写真${index + 1}を別タブで開く`);
+    return `<a href="${base}/photo/${filename}" target="_blank" rel="noopener" aria-label="${label}" title="${label}"><img class="thumb" src="${base}/thumb/${filename}" alt="写真${index + 1}" loading="lazy"></a>`;
+  }).join("");
   const gauss = s.num_gaussians ? ` ・ ${s.num_gaussians.toLocaleString()} ガウシアン` : "";
   card.innerHTML = `
-    ${thumb ? `<img class="thumb" src="${thumb}" alt="">` : ""}
+    ${photos ? `<div class="photos">${photos}</div>` : ""}
     <div class="body">
       <div class="name">${escapeHtml(s.name)}</div>
       <div class="meta">${s.num_images} 枚${gauss}${s.elapsed_seconds ? ` ・ ${s.elapsed_seconds.toFixed(1)}秒` : ""}</div>

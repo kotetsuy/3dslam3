@@ -1,6 +1,7 @@
 """Uploaded photo sets and asynchronous DA3 -> simple 3DGS jobs."""
 import io
 import json
+import logging
 import os
 import re
 import shutil
@@ -14,6 +15,9 @@ from email.policy import default
 from pathlib import Path
 from time import perf_counter
 from PIL import Image, ImageOps
+from pillow_heif import register_heif_opener
+
+register_heif_opener(thumbnails=False)
 
 ROOT = Path(__file__).resolve().parent
 STORE = ROOT/'DA3/uploads'
@@ -83,20 +87,32 @@ def create(content_type, body):
     if not 2 <= len(files) <= MAX_IMAGES:
         raise InputError('写真は2〜8枚選択してください')
     validated = []
-    for data in files:
+    for number, data in enumerate(files, 1):
+        detected_format = None
         try:
             with Image.open(io.BytesIO(data)) as image:
-                ext = {'JPEG':'.jpg', 'PNG':'.png', 'WEBP':'.webp'}.get(image.format)
-                if not ext or image.width*image.height > 30_000_000:
-                    raise ValueError('Unsupported image format or size')
+                detected_format = image.format
+                ext = {'JPEG':'.jpg', 'PNG':'.png', 'WEBP':'.webp', 'HEIF':'.jpg', 'MPO':'.jpg'}.get(image.format)
+                if not ext:
+                    raise InputError(f'{number}枚目は未対応の画像形式（{image.format}）です。JPEG・PNG・WebP・HEIC/HEIF・MPOを選択してください')
+                if image.width*image.height > 30_000_000:
+                    raise InputError(f'{number}枚目が3000万画素を超えています')
                 image.load()
                 thumb = ImageOps.exif_transpose(image).convert('RGB')
+                # MPO opens on its primary image; auxiliary frames are not separate photos.
+                if detected_format in ('HEIF', 'MPO'):
+                    converted = io.BytesIO()
+                    thumb.save(converted, format='JPEG', quality=95, subsampling=0,
+                               icc_profile=image.info.get('icc_profile'))
+                    data = converted.getvalue()
                 thumb.thumbnail((480,360))
                 stream = io.BytesIO()
                 thumb.save(stream, format='JPEG', quality=85)
                 validated.append((data, ext, stream.getvalue()))
         except (OSError, ValueError, Image.DecompressionBombError) as exc:
-            raise InputError('JPEG・PNG・WebPの写真（1枚3000万画素以下）を選択してください') from exc
+            logging.exception('Photo decode failed: index=%d format=%s bytes=%d',
+                              number, detected_format, len(data))
+            raise InputError(f'{number}枚目の画像を読み込めませんでした（形式: {detected_format or "判別できません"}）。JPEG・PNG・WebP・HEIC/HEIF・MPOの写真を選択してください') from exc
     with LOCK:
         if len(listing()) >= MAX_SETS:
             raise InputError('写真セットが上限に達しています', 409)

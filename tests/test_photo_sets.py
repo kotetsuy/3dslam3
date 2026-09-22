@@ -8,9 +8,10 @@ from PIL import Image
 import photo_sets as sets
 
 
-def upload(images=2, name='テスト'):
-    stream=io.BytesIO();Image.new('RGB',(16,16),'red').save(stream,format='PNG')
-    data=stream.getvalue()
+def upload(images=2, name='テスト', data=None):
+    if data is None:
+        stream=io.BytesIO();Image.new('RGB',(16,16),'red').save(stream,format='PNG')
+        data=stream.getvalue()
     body=b'--test\r\nContent-Disposition: form-data; name="name"\r\n\r\n'+name.encode()+b'\r\n'
     for _ in range(images):
         body+=b'--test\r\nContent-Disposition: form-data; name="files"; filename="../../bad.png"\r\nContent-Type: image/png\r\n\r\n'+data+b'\r\n'
@@ -61,6 +62,41 @@ class PhotoSetTests(unittest.TestCase):
         body=body.replace(b'\x89PNG',b'BAD!')
         with self.assertRaises(sets.InputError):sets.create(content_type,body)
         self.assertEqual(sets.listing(),[])
+
+    def test_mpo_upload_uses_primary_image_and_corrects_orientation(self):
+        source = Image.new('RGB', (1152, 1536), 'red')
+        auxiliary = Image.new('RGB', (32, 24), 'blue')
+        exif = source.getexif()
+        exif[274] = 6
+        stream = io.BytesIO()
+        source.save(stream, format='MPO', save_all=True,
+                    append_images=[auxiliary], exif=exif)
+        with Image.open(io.BytesIO(stream.getvalue())) as original:
+            self.assertEqual(original.format, 'MPO')
+            self.assertEqual(original.n_frames, 2)
+        meta = sets.create(*upload(images=4, data=stream.getvalue()))
+        self.assertEqual(meta['images'], [f'img_{i:03}.jpg' for i in range(4)])
+        for name in meta['images']:
+            with Image.open(sets.folder(meta['id'])/'input'/name) as saved:
+                self.assertEqual(saved.format, 'JPEG')
+                self.assertEqual(saved.size, (1536, 1152))
+                self.assertIn(saved.getexif().get(274), (None, 1))
+                red, green, blue = saved.getpixel((100, 100))
+                self.assertGreater(red, 240)
+                self.assertLess(blue, 10)
+
+    def test_heic_upload_converts_four_photos_to_full_size_jpeg(self):
+        source = Image.new('RGB', (1152, 1536), 'red')
+        stream = io.BytesIO()
+        source.save(stream, format='HEIF')
+        meta = sets.create(*upload(images=4, data=stream.getvalue()))
+        folder = sets.folder(meta['id'])
+        self.assertEqual(meta['images'], [f'img_{i:03}.jpg' for i in range(4)])
+        for name in meta['images']:
+            with Image.open(folder/'input'/name) as saved:
+                self.assertEqual(saved.format, 'JPEG')
+                self.assertEqual(saved.size, source.size)
+                saved.load()
 
 
 if __name__=='__main__':unittest.main()

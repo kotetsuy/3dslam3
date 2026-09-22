@@ -44,7 +44,9 @@ While running, the server keeps the DA3 model on the GPU and reuses it for photo
 3. Select the execution environment and click “Create 3D” (3Dを作成).
 4. When generation finishes, click “View 3D” (3Dを見る). You can also download the PLY.
 
-Supports JPEG, PNG, and WebP: 2–8 photos, up to 64 MB total, and up to 30 million pixels per image. **HEIC is not supported.** Up to 20 new sets can be stored, and only one generation job can run at a time. Existing headphone and Shibuya Station results are available in the same list.
+Supports JPEG, PNG, WebP, HEIC/HEIF, and MPO: 2–8 photos, up to 64 MB total, and up to 30 million pixels per image. HEIC/HEIF and MPO images are orientation-corrected and converted to JPEG on upload. Only the primary image of each MPO is used. Up to 20 new sets can be stored, and only one generation job can run at a time. Existing headphone and Shibuya Station results are available in the same list.
+
+Each card displays all its photos. Click a photo to open the full-size stored image in a new tab. Existing headphone and Shibuya Station results use the same photo-card layout and display the saved model input images (`input_*.png`); their 3D results remain read-only. The user confirmed both the photo links and the updated cards work.
 
 The photo-selection GUI and WebGL2 viewer were copied from room3dgs and connected to the DA3 pipeline. The original room3dgs project was not modified. Dragging in the viewer rotates around **the center of the model's coordinate bounds**, rather than a point at a fixed distance. Right-drag pans, Ctrl+wheel moves forward/backward, and number keys return to the capture viewpoints.
 
@@ -73,16 +75,16 @@ The photo-selection GUI and WebGL2 viewer were copied from room3dgs and connecte
 
 ### Connecting from an iPhone or personal hotspot
 
-The default address, `127.0.0.1`, is accessible only from this PC. To use an iPhone, connect the PC to the same network, such as the iPhone's personal hotspot, then start the server with a different listening address:
+`./start_all.sh` listens on `0.0.0.0` by default, allowing external connections. To use an iPhone, connect the PC to the same network, such as the iPhone's personal hotspot. Use `./start_all.sh --host 127.0.0.1` for PC-only access. Normal startup:
 
 ```bash
 ./stop_all.sh
-./start_all.sh --host 0.0.0.0
+./start_all.sh
 ```
 
 On the PC, check “PC connection URL” (PCの接続URL) at the top of the page. Open that URL in Safari on the iPhone to select photos. An example is `http://192.168.0.9:8080/`, but this IP is not fixed. The page obtains IPv4 addresses from connected interfaces and refreshes them **every 15 seconds and when focus returns**. It also displays the actual port if changed. Use the displayed PC IP address, rather than entering `0.0.0.0` or the iPhone's own `localhost` in Safari.
 
-If the server is listening only locally, the page indicates that too. Displaying a URL does not enable external access by itself. If you cannot connect, check the PC's network connection, IP address, listening configuration, and firewall access to port 8080. Hotspot connectivity also depends on the connection method and other conditions; **uploading from a physical iPhone has not yet been verified**. Select JPEG, PNG, or WebP files supported by the photo GUI.
+If the server is listening only locally, the page indicates that too. Displaying a URL does not enable external access by itself. If you cannot connect, check the PC's network connection, IP address, listening configuration, and firewall access to port 8080. Uploading four 1152×1536 photos from a physical iPhone was confirmed by the user after adding MPO support. Personal-hotspot connectivity has not been separately verified. Select JPEG, PNG, WebP, HEIC/HEIF, or MPO files supported by the photo GUI.
 
 ### Storage locations and main files
 
@@ -490,7 +492,7 @@ The WebGL2 viewer from `/home/your-user/room3dgs/static/` was copied to `viewer/
 DA3/.venv/bin/python viewer_server.py --port 8080
 ```
 
-This is an example of manual startup. Normally, use `./start_all.sh` / `./stop_all.sh`. Open **http://127.0.0.1:8080/** in a browser and select a result. Stop a manually started server with Ctrl+C in its terminal. Use `--port` to choose another port. The server uses Python, NumPy, and Pillow and listens only on localhost by default. Existing generated files are served as-is. See “Photo-selection GUI” below for saving new photos and generating results.
+This is an example of manual startup. Normally, use `./start_all.sh` / `./stop_all.sh`. Open **http://127.0.0.1:8080/** in a browser and select a result. Stop a manually started server with Ctrl+C in its terminal. Use `--port` to choose another port. The server uses Python, NumPy, and Pillow and listens only on localhost by default when launched manually; `./start_all.sh` enables external connections by default. Existing generated files are served as-is. See “Photo-selection GUI” below for saving new photos and generating results.
 
 - Drag: Rotate around the model center. Right-drag: Pan.
 - Ctrl+wheel: Move forward/backward. Normal wheel: Rotate.
@@ -580,22 +582,24 @@ For normal startup, use the script that keeps the ROCm model resident:
 4. On the saved card, select CPU or GPU (ROCm), then click “Create 3D” (3Dを作成).
 5. When finished, click “View 3D” (3Dを見る). The viewer also provides a PLY download.
 
-Supports JPEG, PNG, and WebP, up to 64 MB total and 30 million pixels per image. Photos are saved in the order selected by the browser and renamed on the server. GUI generation currently produces **simple 3DGS of the entire scene, including the background**. SigLIP classification, background removal, and additional photo-based optimization do not run automatically.
+Supports JPEG, PNG, WebP, HEIC/HEIF, and MPO, up to 64 MB total and 30 million pixels per image. Photos are saved in the order selected by the browser and renamed on the server. GUI generation currently produces **simple 3DGS of the entire scene, including the background**. SigLIP classification, background removal, and additional photo-based optimization do not run automatically.
 
 When started with `start_all.sh`, new sets default to the warmed-up GPU (ROCm). Starting `viewer_server.py` directly retains CPU as the default. GPU execution requires the environment prepared by `setup_da3_rocm.sh` and access to the GPU, and uses FP32. Only one generation job can run at a time. An error is displayed if another job is running; retry after it finishes. Progress and success/failure are reflected on the card. On completion, the card also shows generation time and Gaussian count.
 
-- New sets: Original photos in `DA3/uploads/<ID>/input/`, thumbnails in `thumb/`, and status in `meta.json`.
+- New sets: Uploaded photos in `DA3/uploads/<ID>/input/` (HEIC/HEIF and MPO are stored as converted JPEGs; their original containers are not retained), thumbnails in `thumb/`, and status in `meta.json`.
 - Generated results: `runs/<run-ID>/` within the same set directory. Regeneration retains earlier results and switches the displayed result only after success. A failed regeneration does not lose the previous PLY.
 - Logs: `generation.log` in each run directory. Jobs interrupted by shutdown are marked as errors on the next startup and can be regenerated manually.
 - “Remove from list” (一覧から削除) archives photos and results to `DA3/trash/`. Permanent deletion and restoration through the GUI are not implemented.
 - Up to 20 new sets are supported. The four existing headphone/Shibuya Station results are separate, read-only entries and cannot be regenerated or removed through the GUI.
 - All photos and generated files are covered by the existing `/DA3/` entry in `.gitignore`.
 
-Headless Chromium checks verified selecting and saving four photos, CPU generation, ROCm regeneration, 3D viewing, the PLY download response, and archiving from the list. Generation for the test set took about 6.4 seconds on CPU and 6.8 seconds on ROCm. These are generation-only times, excluding photo upload and browser loading. There were no JavaScript exceptions. Five tests also passed for upload validation, path restrictions, file preservation during archiving, rejection of removal during generation, and recovery from interruption.
+Headless Chromium checks verified selecting and saving four photos, CPU generation, ROCm regeneration, 3D viewing, the PLY download response, and archiving from the list. Generation for the test set took about 6.4 seconds on CPU and 6.8 seconds on ROCm. These are generation-only times, excluding photo upload and browser loading. There were no JavaScript exceptions. The initial five tests also passed for upload validation, path restrictions, file preservation during archiving, rejection of removal during generation, and recovery from interruption.
 
 ```bash
 DA3/.venv/bin/python -m unittest discover -s tests -p test_photo_sets.py -v
 ```
+
+The current photo-set suite has seven passing tests, including four-image HEIC conversion and MPO primary-image extraction with orientation correction. For decode failures, the GUI identifies the photo number and detected format, while `run/server.log` records the decoder exception. MPO support resolved the reported iPhone upload failure; HEIC conversion was verified with generated test images.
 
 ### Server startup, shutdown, and ROCm initialization
 
@@ -610,7 +614,7 @@ DA3/.venv/bin/python -m unittest discover -s tests -p test_photo_sets.py -v
 
 Warmup performs two inference runs on synthetic inputs with four images, 504×378 resolution, and float32. It does not create or modify input photos or generated results. Previously unused shapes, such as different photo counts or aspect ratios, may require additional first-use processing. No new weights are downloaded. Run `download_da3.py` and `setup_da3_rocm.sh` beforehand.
 
-- Listening address: `127.0.0.1:8080` by default.
+- Listening address: `0.0.0.0:8080` by default (external connections enabled). On the PC, `http://127.0.0.1:8080/` also works.
 - Logs: `run/server.log`, appended. Readiness endpoint: `/api/health`.
 - Control files: `run/server.json` / `run/server.pid`. These and the logs are excluded by `.gitignore`.
 - Startup wait: 180 seconds by default. On failure or timeout, the launched process is cleaned up and the script returns exit code 1. It does not automatically switch to CPU if a GPU is unavailable.
@@ -621,6 +625,7 @@ Warmup performs two inference runs on synthetic inputs with four images, 504×37
 Optional arguments:
 
 ```bash
+./start_all.sh --host 127.0.0.1     # Restrict access to this PC
 ./start_all.sh --port 8081          # Change the port; HOST/PORT environment variables are also supported
 ./start_all.sh --cpu                # Skip the resident ROCm model and warmup
 ./start_all.sh --timeout 300        # Change the startup timeout
@@ -639,10 +644,10 @@ After startup model loading and warmup, four Shibuya Station photos were process
 
 Both runs used the same server PID, reported `resident_model=true`, and had zero model-loading time per generation. Upload, HTTP wait, viewer loading, and server startup are excluded. Startup model initialization and warmup took about 4.0 seconds in this test, excluding the preceding Python startup and some imports.
 
-The mean absolute depth difference from the same CPU reference was 3.2×10⁻⁷, and the Gaussian count also matched at 457,229. The CPU CLI path still exactly matched the existing prediction arrays. Results are recorded in `reports/resident_rocm_test.json`. Startup, duplicate startup, shutdown, and cleanup after port-conflict failure were exercised. Four tests ensuring unmanaged PIDs are not stopped and five photo-set tests passed.
+The mean absolute depth difference from the same CPU reference was 3.2×10⁻⁷, and the Gaussian count also matched at 457,229. The CPU CLI path still exactly matched the existing prediction arrays. Results are recorded in `reports/resident_rocm_test.json`. Startup, duplicate startup, shutdown, and cleanup after port-conflict failure were exercised. At that measurement, four tests ensuring unmanaged PIDs are not stopped and five photo-set tests passed.
 
 ```bash
 DA3/.venv/bin/python -m unittest discover -s tests -p test_server_control.py -v
 ```
 
-The top of the photo-selection page displays connection URLs built from the PC's current IPv4 addresses and the server port. They refresh every 15 seconds and when the page regains focus. If the server is currently listening only locally, that is also indicated. To connect from an iPhone or another device, run `./stop_all.sh`, then `./start_all.sh --host 0.0.0.0`, and open the displayed URL from the same network. The IP display feature does not change the listening configuration by itself.
+The top of the photo-selection page displays connection URLs built from the PC's current IPv4 addresses and the server port. They refresh every 15 seconds and when the page regains focus. If the server is currently listening only locally, that is also indicated. To connect from an iPhone or another device, run `./stop_all.sh`, then `./start_all.sh`, and open the displayed URL from the same network. The IP display feature does not change the listening configuration by itself.

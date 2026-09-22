@@ -21,11 +21,11 @@
   <main>
     <section class="panel">
       <h2>新しい写真セット</h2>
-      <p class="hint">同じ対象を別視点で <b>2〜8枚</b>（まずは4枚、重なりを持たせて）。背景も含めて3Dにします。JPEG・PNG・WebP、合計64MBまで。</p>
+      <p class="hint">同じ対象を別視点で <b>2〜8枚</b>（まずは4枚、重なりを持たせて）。背景も含めて3Dにします。JPEG・PNG・WebP・HEIC/HEIF・MPO、合計64MBまで。HEIC/HEIF・MPOはJPEGに変換して取り込みます。</p>
       <form id="new-set-form">
         <input type="text" id="set-name" placeholder="セット名（例: リビング）" maxlength="40" required>
         <div id="drop" class="dropzone">
-          <input type="file" id="files" accept="image/jpeg,image/png,image/webp" multiple hidden>
+          <input type="file" id="files" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/mpo,.heic,.heif,.mpo" multiple hidden>
           <p>クリック、またはここに写真をドラッグ&ドロップ</p>
           <p id="pick-count" class="pick-count"></p>
         </div>

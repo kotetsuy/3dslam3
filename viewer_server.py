@@ -64,6 +64,12 @@ def count_ply(path):
     raise ValueError('PLY vertex count missing')
 
 
+def existing_photos(key):
+    # Use the saved model inputs beside the prediction, including optimized sets.
+    directory = (OUTPUT/SETS[key][2]).parent
+    return {path.name: path for path in sorted(directory.glob('input_*.png'))}
+
+
 @lru_cache(maxsize=16)
 def cameras(relative, modified_ns):
     with np.load(relative) as pred:
@@ -125,7 +131,7 @@ class Handler(BaseHTTPRequestHandler):
                     with np.load(prediction) as pred:
                         count = len(pred['extrinsics'])
                     items.append(dict(id=key, name=name, num_gaussians=count_ply(file), bytes=file.stat().st_size,
-                                      num_images=count, images=[], has_ply=True, read_only=True, status='done', message=''))
+                                      num_images=count, images=list(existing_photos(key)), has_ply=True, read_only=True, status='done', message=''))
             self.send_json(dict(sets=photo_sets.listing()+items, max=photo_sets.MAX_SETS,
                                 default_device='rocm' if photo_sets.ROCM_RUNTIME else 'cpu'))
         elif path.startswith('/api/sets/'):
@@ -136,6 +142,13 @@ class Handler(BaseHTTPRequestHandler):
             key, action = parts[3:5]
             try:
                 if key in SETS:
+                    if action in ('thumb', 'photo') and len(parts) == 6:
+                        photo = existing_photos(key).get(parts[5])
+                        if photo is None:
+                            self.send_error(404)
+                        else:
+                            self.send_file(photo, 'image/png')
+                        return
                     _, ply, prediction = SETS[key]
                     ply, prediction = OUTPUT/ply, OUTPUT/prediction
                 else:
@@ -145,6 +158,11 @@ class Handler(BaseHTTPRequestHandler):
                         return
                     if action == 'thumb' and len(parts) == 6 and parts[5] in meta['images']:
                         self.send_file(photo_sets.folder(key)/'thumb'/parts[5], 'image/jpeg')
+                        return
+                    if action == 'photo' and len(parts) == 6 and parts[5] in meta['images']:
+                        photo = photo_sets.folder(key)/'input'/parts[5]
+                        mime = {'.jpg':'image/jpeg', '.png':'image/png', '.webp':'image/webp'}[photo.suffix]
+                        self.send_file(photo, mime)
                         return
                     ply, prediction = photo_sets.result_paths(key)
                 if len(parts) == 5 and action == 'scene.ply':
@@ -197,6 +215,7 @@ class Handler(BaseHTTPRequestHandler):
                     raise photo_sets.InputError('生成設定が不正です')
                 self.send_json(photo_sets.start(parts[3],options.get('device','cpu')),202)
         except photo_sets.InputError as exc:
+            self.log_error('Request rejected: %s', exc)
             self.send_json(dict(detail=str(exc)),exc.status)
         except (TimeoutError,ConnectionError):
             self.close_connection = True

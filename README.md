@@ -2,6 +2,10 @@
 
 [Japanese documentation / 日本語](READMEJ.md)
 
+## License
+
+This project's original code is licensed under the [Apache License 2.0](LICENSE). Third-party code, dependencies, and model weights retain their respective licenses. See [viewer/NOTICE.md](viewer/NOTICE.md), [viewer/licenses/](viewer/licenses/), and the model-specific license sections below.
+
 ## hx370-gfx1150 branch (this PC)
 
 This branch targets Ryzen AI 9 HX 370 / Radeon 890M (gfx1150). The historical 8060S timings below describe a different machine.
@@ -192,7 +196,7 @@ Commercial use, modification, and redistribution are permitted under the [Apache
 - The license provides no warranty and does not grant trademark rights.
 - Using this model does not require disclosure of your application's source code.
 
-This section describes the selected model's terms. Dependencies such as PyTorch and Transformers have their own licenses. This section does not assign a new license to this project's original code.
+This section describes the selected model's terms. Dependencies such as PyTorch and Transformers have their own licenses. The project's original code is covered by the root [LICENSE](LICENSE).
 
 ### Classification validation results (2026-09-21)
 

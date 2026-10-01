@@ -1,0 +1,79 @@
+{
+  "pid": 28106,
+  "resident_model": true,
+  "inference": {
+    "model": "DA3-BASE",
+    "resident_model": true,
+    "device": "cuda",
+    "backend": "rocm",
+    "dtype": "float32",
+    "threads": 8,
+    "torch_version": "2.13.0+rocm10.0.0",
+    "hip_version": "7.15.26333",
+    "gpu_name": "AMD Radeon 890M Graphics",
+    "peak_gpu_allocated_bytes": 2397280256,
+    "inference_runs": [
+      {
+        "run": 1,
+        "forward_seconds": 1.8640433299988217,
+        "prediction_seconds": 1.8747060209989286
+      }
+    ],
+    "repeat": 1,
+    "images": [
+      "/home/test/3dslam3/DA3/outputs/gfx1150-smoke/input/0.png",
+      "/home/test/3dslam3/DA3/outputs/gfx1150-smoke/input/1.png",
+      "/home/test/3dslam3/DA3/outputs/gfx1150-smoke/input/2.png",
+      "/home/test/3dslam3/DA3/outputs/gfx1150-smoke/input/3.png"
+    ],
+    "depth_shape": [
+      4,
+      504,
+      378
+    ],
+    "resolution_limit": 504,
+    "ref_view_strategy": "first",
+    "background_removed_before_inference": false,
+    "mask_dir": null,
+    "conf_percentile": 40,
+    "confidence_threshold": 1.001954197883606,
+    "load_seconds": 0.0,
+    "forward_seconds": 1.8640433299988217,
+    "prediction_seconds": 1.8747060209989286,
+    "total_seconds": 2.6847233019998384,
+    "scene_points": 457236,
+    "object_points": null,
+    "output_type": "RGB point cloud, not 3DGS or mesh",
+    "metric_scale": false
+  },
+  "conversion": {
+    "input": "/home/test/3dslam3/DA3/outputs/gfx1150-smoke/result/scene_points.ply",
+    "output": "/home/test/3dslam3/DA3/outputs/gfx1150-smoke/result/scene_3dgs.ply",
+    "input_points": 457236,
+    "gaussians": 457236,
+    "duplicates_merged": 0,
+    "opacity": 0.8,
+    "scale_factor": 0.75,
+    "sigma_min": 0.0005523074910013873,
+    "sigma_median": 0.0011460081792615386,
+    "sigma_max": 0.002461786166323714,
+    "scale_estimation": "RMS distance to up to 3 nearest distinct neighbors; floor=0.05*median; cap=2*p95",
+    "sh_degree": 3,
+    "higher_sh_zero": true,
+    "rotation": "identity wxyz",
+    "optimized": false,
+    "coordinate_frame": "unchanged from input PLY",
+    "elapsed_seconds": 0.6761209279993636,
+    "output_bytes": 113396148
+  },
+  "total_seconds": 3.3627631060007843,
+  "validation": {
+    "date": "2026-10-01",
+    "architecture": "gfx1150",
+    "cpu": "Ryzen AI 9 HX 370",
+    "input": "four synthetic noise images, seed 42, horizontal roll of 0/4/8/12 pixels",
+    "quality_evaluated": false,
+    "python_tests_passed": 22,
+    "javascript_tests": "not run: node unavailable"
+  }
+}

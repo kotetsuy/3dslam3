@@ -23,6 +23,8 @@ class ResidentDA3:
         from PIL import Image
         from infer_da3 import create_model
         from points_to_3dgs import convert
+        from check_rocm import check
+        gpu_info = check()
         if not torch.version.hip or not torch.cuda.is_available():
             raise RuntimeError('ROCm GPUが利用できません。setup_da3_rocm.shとデバイスへのアクセスを確認してください。')
         self.model, load_seconds = create_model('cuda','float32',8)
@@ -40,6 +42,8 @@ class ResidentDA3:
             timings.append(self.model.forward_seconds)
         torch.cuda.synchronize()
         self.info = dict(ready=True,pid=os.getpid(),device=torch.cuda.get_device_name(),dtype='float32',
+                         architecture=gpu_info['architecture'],torch_version=gpu_info['torch_version'],
+                         hip_version=gpu_info['hip_version'],
                          load_seconds=load_seconds,warmup_forward_seconds=timings,
                          warmup_shape=[4,504,378],initialization_seconds=perf_counter()-start)
         print('ROCm ready:',self.info,flush=True)

@@ -191,7 +191,7 @@ def run(key, python, device):
                 subprocess.run([str(python),str(ROOT/'infer_da3.py'),str(path/'input'),
                                 '--limit',str(MAX_IMAGES),'--device',device,'--dtype','float32','--output',str(output)],
                                cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=600)
-                subprocess.run([str(ROOT/'DA3/.venv/bin/python'),str(ROOT/'points_to_3dgs.py'),
+                subprocess.run([str(python),str(ROOT/'points_to_3dgs.py'),
                                 str(output/'scene_points.ply'),'--output',str(output/'scene_3dgs.ply')],
                                cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=120)
         count = json.loads((output/'scene_3dgs.json').read_text())['gaussians']

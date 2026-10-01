@@ -2,6 +2,24 @@
 
 [Japanese documentation / 日本語](READMEJ.md)
 
+## hx370-gfx1150 branch (this PC)
+
+This branch targets Ryzen AI 9 HX 370 / Radeon 890M (gfx1150). The historical 8060S timings below describe a different machine.
+
+```bash
+bash setup_da3_rocm.sh
+DA3/.venv-rocm/bin/python download_da3.py
+./start_all.sh
+# Stop
+./stop_all.sh
+```
+
+Setup reuses ROCm PyTorch from `$HOME/RealtimeDepth/.venv-rocm10/bin/python` without modifying it. Override with `ROCM_PYTHON=/path/to/bin/python bash setup_da3_rocm.sh`. Keep that base environment installed; additional dependencies live in `DA3/.venv-rocm`. GPU generation does not require the CPU environment.
+
+Setup and resident startup run `check_rocm.py`, comparing GPU FP32 matrix multiplication and attention against CPU results. Use a native gfx1150 build and leave `HSA_OVERRIDE_GFX_VERSION` unset. Access to `/dev/kfd` and `/dev/dri` is required. Inference uses FP32 at up to 504px. Resident status includes the GPU architecture and PyTorch/HIP versions.
+
+Validated on this PC on 2026-10-01: four synthetic 504×378 images through resident inference and 3DGS PLY export. Warm forward: 1.86s; inference/export/conversion: 3.36s; peak PyTorch allocation: 2.40GB. This is a smoke test, not real-photo quality or speed validation. All 22 Python tests passed. See the [validation record](reports/gfx1150-smoke.json).
+
 ## Model selection status
 
 - **SigLIP 2: adopted** for classifying objects versus rooms/scenes. Implemented as a standalone CLI; it does not run automatically from the photo GUI.

@@ -1,5 +1,23 @@
 # 3dslam3 — 複数写真から簡易3DGSを生成
 
+## hx370-gfx1150 ブランチ（このPC）
+
+対象は Ryzen AI 9 HX 370 / Radeon 890M（gfx1150）です。以下の8060Sの計測値は別PCの記録で、このPCの速度ではありません。
+
+```bash
+bash setup_da3_rocm.sh
+DA3/.venv-rocm/bin/python download_da3.py
+./start_all.sh
+# 停止
+./stop_all.sh
+```
+
+既定では `$HOME/RealtimeDepth/.venv-rocm10/bin/python` のROCm版PyTorchを読み取り専用で再利用します。別環境なら `ROCM_PYTHON=/path/to/bin/python bash setup_da3_rocm.sh` を指定してください。追加依存はこのフォルダの `DA3/.venv-rocm` にインストールします。元環境は残す必要があります。CPU用環境はGPU生成には不要です。
+
+セットアップと常駐モデルの起動時に `check_rocm.py` が実GPUのFP32行列積・AttentionをCPU結果と比較します。gfx1150をネイティブに扱えるビルドを使用し、`HSA_OVERRIDE_GFX_VERSION` は設定しません。GPUへのアクセスには `/dev/kfd` と `/dev/dri` が必要です。モデルはFP32・最大504pxで動作します。GPU名・アーキテクチャ・PyTorch/HIP版は常駐サーバーの状態情報に記録されます。
+
+2026-10-01、このPCで合成画像4枚（504×378）の常駐推論から3DGS PLY出力まで確認済みです。ウォーム後の推論1.86秒、変換・保存込み3.36秒、PyTorchのピーク割当約2.40GB。実写真の品質・速度を保証する計測ではありません。Pythonテスト22件成功。詳細は [検証記録](reports/gfx1150-smoke.json)。
+
 ## モデル選定状況
 
 - **SigLIP 2: 採用**（物体／部屋・風景の分類）。独立CLIとして実装済みで、写真GUIからは自動実行しません。

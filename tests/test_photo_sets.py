@@ -57,6 +57,22 @@ class PhotoSetTests(unittest.TestCase):
         self.assertEqual(recovered['result'],'runs/previous')
         self.assertTrue(recovered['has_ply'])
 
+    def test_rocm_subprocess_conversion_uses_same_environment(self):
+        meta = sets.create(*upload())
+        python = Path('/rocm-only/bin/python')
+        commands = []
+        def execute(command, **kwargs):
+            commands.append(command)
+            if command[1].endswith('points_to_3dgs.py'):
+                output = Path(command[-1]).parent
+                (output/'scene_3dgs.json').write_text('{"gaussians": 1}')
+        sets.JOB_LOCK.acquire()
+        with patch.object(sets, 'ROCM_RUNTIME', None), patch.object(sets.subprocess, 'run', side_effect=execute):
+            sets.run(meta['id'], python, 'rocm')
+        self.assertEqual(sets.get(meta['id'])['status'], 'done')
+        self.assertEqual(len(commands), 2)
+        self.assertEqual([command[0] for command in commands], [str(python)] * 2)
+
     def test_invalid_image_does_not_create_set(self):
         content_type,body=upload()
         body=body.replace(b'\x89PNG',b'BAD!')

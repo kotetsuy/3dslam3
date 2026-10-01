@@ -5,6 +5,7 @@ project_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 rocm_python="${ROCM_PYTHON:-$HOME/RealtimeDepth/.venv-rocm10/bin/python}"
 export UV_CACHE_DIR="${UV_CACHE_DIR:-$project_dir/.cache/uv}"
 "$rocm_python" -c 'import torch, torchvision, numpy, cv2; assert torch.version.hip, "ROCm PyTorch is required"; print("Reusing", torch.__version__)'
+"$rocm_python" "$project_dir/check_rocm.py"
 uv venv "$project_dir/DA3/.venv-rocm" --python "$rocm_python" --system-site-packages --allow-existing
 "$project_dir/DA3/.venv-rocm/bin/python" - "$rocm_python" <<'PY'
 import json, pathlib, site, subprocess, sys
@@ -16,7 +17,8 @@ uv pip install --python "$project_dir/DA3/.venv-rocm/bin/python" --no-deps -r "$
 "$project_dir/DA3/.venv-rocm/bin/python" - "$project_dir" <<'PY'
 import sys
 sys.path.insert(0, sys.argv[1])
-import infer_da3, torch
+import torch, torchvision, numpy, cv2, pillow_heif, plyfile, e3nn, evo
 assert torch.version.hip
-print('DA3 ready:', torch.__version__, 'HIP', torch.version.hip)
+print('DA3 dependencies ready:', torch.__version__, 'HIP', torch.version.hip)
+print('Next: DA3/.venv-rocm/bin/python download_da3.py, then ./start_all.sh')
 PY

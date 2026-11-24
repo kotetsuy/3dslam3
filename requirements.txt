@@ -2,6 +2,8 @@
 torch>=2.6,<3
 transformers>=5.10,<6
 Pillow>=13,<14
+filelock>=4.2.1
+certifi>=2026.10.18
 pillow-heif>=0.20,<2
 sentencepiece>=0.2,<0.3
 protobuf>=5,<8

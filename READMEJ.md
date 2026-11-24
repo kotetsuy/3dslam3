@@ -305,11 +305,13 @@ rembgのコードは[MIT](https://github.com/danielgatis/rembg)、U2Netの上流
 # 既存の共通環境でソースと重みを取得
 .venv/bin/python download_da3.py
 .venv/bin/python download_da3.py --local-files-only
-# DA3用Python 3.10 / CPU環境を作成
+# DA3用Python 3.11 / CPU環境を作成
 bash setup_da3.sh
 # 同じ写真4枚で推論
 DA3/.venv/bin/python infer_da3.py /path/to/photos --limit 4
 ```
+
+既存のCPU環境を更新する場合、スクリプトはその環境を `DA3/.venv-before-python311` に保存してからPython 3.11環境を作成します。同名の保存先が既にある場合は、別の場所に移してから再実行してください。
 
 固定バージョン:
 
@@ -321,7 +323,7 @@ DA3/.venv/bin/python infer_da3.py /path/to/photos --limit 4
 DA3/                                # フォルダ全体を.gitignoreで除外
 ├── source/                         # 公式ソース、設定、LICENSE
 ├── checkpoints/                    # 重み・設定・モデルカード・取得メタデータ
-├── .venv/                          # Python 3.10のCPU環境
+├── .venv/                          # Python 3.11のCPU環境
 ├── .venv-rocm/                     # ROCm用追加依存環境（既存ROCm環境を参照）
 ├── uploads/                        # GUIで保存した写真と生成結果
 ├── trash/                          # 一覧から取り除いたセットの退避先

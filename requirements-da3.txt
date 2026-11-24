@@ -1,8 +1,10 @@
-# CPU geometry-only DA3 runner, Python 3.10. Install torch/torchvision separately.
+# CPU geometry-only DA3 runner, Python 3.11. Install torch/torchvision separately.
 numpy==1.26.4
 huggingface-hub==0.36.2
 safetensors>=0.5,<1
-pillow>=10,<13
+pillow>=13,<14
+certifi>=2026.10.18
+filelock>=4.2.1
 einops==0.8.2
 omegaconf==2.3.0
 addict==2.4.0

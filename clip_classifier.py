@@ -78,7 +78,7 @@ class ClipClassifier:
         token_options = dict(padding='max_length', max_length=self.model.config.text_config.max_position_embeddings, truncation=True) if self.is_siglip else dict(padding=True)
         tokens = self.processor(text=prompts, return_tensors='pt', **token_options).to(device)
         with torch.inference_mode():
-            features = self.model.get_text_features(**tokens)
+            features = self.model.get_text_features(**tokens).pooler_output
             features = features / features.norm(dim=-1, keepdim=True)
             features = features.reshape(3, 3, -1).mean(dim=1)
             self.text_features = features / features.norm(dim=-1, keepdim=True)
@@ -104,7 +104,7 @@ class ClipClassifier:
                     images.append(ImageOps.exif_transpose(source).convert('RGB'))
             pixels = self.processor(images=images, return_tensors='pt')['pixel_values'].to(self.device)
             with self.torch.inference_mode():
-                features = self.model.get_image_features(pixel_values=pixels)
+                features = self.model.get_image_features(pixel_values=pixels).pooler_output
                 features = features / features.norm(dim=-1, keepdim=True)
                 logits = self.model.logit_scale.exp() * features @ self.text_features.T
                 rows.extend(logits.softmax(dim=-1).cpu().tolist())

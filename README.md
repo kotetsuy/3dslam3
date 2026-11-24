@@ -306,11 +306,13 @@ The currently adopted model is **DA3-BASE**. Its [official model card](https://h
 # Download source and weights using the existing shared environment
 .venv/bin/python download_da3.py
 .venv/bin/python download_da3.py --local-files-only
-# Create a Python 3.10 / CPU environment for DA3
+# Create a Python 3.11 / CPU environment for DA3
 bash setup_da3.sh
 # Run inference on the same four photos
 DA3/.venv/bin/python infer_da3.py /path/to/photos --limit 4
 ```
+
+When upgrading an existing CPU environment, the setup script saves it as `DA3/.venv-before-python311` before creating the Python 3.11 environment. If that backup already exists, move it elsewhere before retrying.
 
 Pinned versions:
 
@@ -322,7 +324,7 @@ Pinned versions:
 DA3/                                # Entire directory excluded by .gitignore
 ├── source/                         # Official source, configuration, and LICENSE
 ├── checkpoints/                    # Weights, configuration, model card, and download metadata
-├── .venv/                          # Python 3.10 CPU environment
+├── .venv/                          # Python 3.11 CPU environment
 ├── .venv-rocm/                     # Additional ROCm dependencies (references an existing ROCm environment)
 ├── uploads/                        # Photos and results saved through the GUI
 ├── trash/                          # Archived sets removed from the list

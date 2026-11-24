@@ -510,6 +510,8 @@ The orbit center is the center of the bounding box of the loaded Gaussians' XYZ 
 
 ### DA3 ROCm inference (Radeon 8060S, verified 2026-09-21)
 
+For ROCm 10.2, run `bash setup_da3_rocm102.sh`. It installs PyTorch 2.15.0 and torchvision 0.29.2 for gfx1151 and the DA3 dependencies into `DA3/.venv-rocm102/`. Python 3.14 is required; set `ROCM102_PYTHON` to select another interpreter. After the setup import checks succeed, server startup and standalone GPU jobs prefer this environment; otherwise they fall back to the previous environment. Resident model warmup and four-photo GPU inference were verified on Radeon 8060S. The previous environment and measurements below are retained.
+
 `infer_da3.py` now supports `--device rocm` and `--dtype float32|float16`. The CPU version uses `--device cpu --dtype float32`, which remain the defaults. ROCm uses the `cuda` device in the PyTorch API, while reports record `backend: rocm`. Weights, model, preprocessing, and reference viewpoint are shared with the CPU version; the official DA3 source is unchanged.
 
 The setup references an existing ROCm environment without modifying it and installs only additional DA3 dependencies inside this project.

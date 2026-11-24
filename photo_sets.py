@@ -16,6 +16,7 @@ from pathlib import Path
 from time import perf_counter
 from PIL import Image, ImageOps
 from pillow_heif import register_heif_opener
+from rocm_environment import rocm_python
 
 register_heif_opener(thumbnails=False)
 
@@ -157,7 +158,7 @@ def archive(key):
 def start(key, device):
     if device not in ('cpu','rocm'):
         raise InputError('実行環境が不正です')
-    python = ROOT/('DA3/.venv-rocm/bin/python' if device == 'rocm' else 'DA3/.venv/bin/python')
+    python = rocm_python(ROOT) if device == 'rocm' else ROOT/'DA3/.venv/bin/python'
     if not python.is_file():
         raise InputError('選択した実行環境がありません。セットアップを実行してください')
     with LOCK:

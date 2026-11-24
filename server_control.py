@@ -12,6 +12,7 @@ import time
 import urllib.error
 import urllib.request
 import uuid
+from rocm_environment import rocm_python
 
 ROOT = Path(__file__).resolve().parent
 RUN = ROOT/'run'
@@ -93,7 +94,7 @@ def start(args):
             raise RuntimeError('サーバーがまだ準備中です')
         print(f'既に起動しています: {state["url"]} (PID {state["pid"]})')
         return
-    python = ROOT/('DA3/.venv/bin/python' if args.cpu else 'DA3/.venv-rocm/bin/python')
+    python = ROOT/'DA3/.venv/bin/python' if args.cpu else rocm_python(ROOT)
     if not python.is_file():
         raise RuntimeError('実行環境がありません。setup_da3.sh / setup_da3_rocm.shを先に実行してください。')
     if not (ROOT/'DA3/checkpoints/model.safetensors').is_file() and not args.cpu:

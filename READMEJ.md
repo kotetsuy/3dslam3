@@ -509,6 +509,8 @@ DA3のカメラ姿勢を読み、先頭写真の視点から表示します。�
 
 ### DA3のROCm推論（Radeon 8060S、2026-09-21検証）
 
+ROCm 10.2 用には `bash setup_da3_rocm102.sh` を実行します。gfx1151 向け PyTorch 2.15.0 / torchvision 0.29.2 と DA3 の依存を `DA3/.venv-rocm102/` に導入します。Python 3.14 が必要で、別のインタープリターは `ROCM102_PYTHON` で指定できます。セットアップのインポート検証が成功すると、起動スクリプトと単発 GPU 生成はこの環境を優先し、未完成の場合は従来の環境を使います。Radeon 8060S で常駐モデルのウォームアップと写真4枚の GPU 推論を確認しました。旧環境や以下の測定記録はそのまま残ります。
+
 `infer_da3.py` に `--device rocm` と `--dtype float32|float16` を追加しました。CPU版は `--device cpu --dtype float32` で、既定値もCPU/float32のままです。ROCmはPyTorch API上では `cuda` デバイスとして動作し、レポートには `backend: rocm` を記録します。重み・モデル・前処理・参照視点はCPU版と共通で、DA3公式ソースの変更はありません。
 
 既存のROCm環境を読み取り専用で参照し、DA3用の追加依存だけをプロジェクト内に入れます。
